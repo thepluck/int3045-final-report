@@ -4,7 +4,7 @@ meta:
     title: Các mô hình học máy
 ---
 
-## Linear Support Vector Machine (SVM)
+## 1. Linear Support Vector Machine (SVM)
 
 ### Cơ sở lý thuyết
 Support vector machine (SVM) là một trong những thuật toán học có giám sát phổ biến và mạnh mẽ, được sử dụng rộng rãi trong các bài toán phân loại và hồi quy. Thuật toán này dựa trên việc tìm ra một siêu phẳng (hyperplane) phân chia tốt nhất giữa các nhóm dữ liệu, sao cho khoảng cách từ các điểm dữ liệu tới siêu phẳng đó là lớn nhất.
@@ -113,7 +113,7 @@ Kết quả:
 weighted avg       1.00      1.00      1.00      8980
  ```
 
-## Kernel Support Vector Machine
+## 2. Kernel Support Vector Machine
 
 ### Cơ sở lý thuyết
 Ý tưởng cơ bản của Kernel SVM và các phương pháp kernel nói chung là tìm một phép biến
