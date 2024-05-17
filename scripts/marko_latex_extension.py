@@ -107,26 +107,9 @@ class InterviewQA(inline.InlineElement):
     def __init__(self, match: re.Match[str]) -> None:
         self.type = match.group(1)
         
-shorthand_data = yaml.safe_load(open('./shorthands.yaml'))
-class ShorthandMeaning(NamedTuple):
-    value: str
-    id: int
-
-transformed_shorthand_data: dict[str, ShorthandMeaning] = {}
-for idx, data in enumerate(shorthand_data):
-    for keyword, meaning in data.items():
-        transformed_shorthand_data[keyword] = ShorthandMeaning(meaning, idx)
-        
-class Shorthand(inline.InlineElement):
-    pattern = f'({"|".join(transformed_shorthand_data.keys())})'
-    parse_children = False
-    def __init__(self, match: re.Match[str]) -> None:
-        self.keyword = match.group(1)
-        self.meaning = transformed_shorthand_data[self.keyword]
 
 class MarkoLatexRenderer(LatexRenderer):
     front_matter: dict[str, Any] = {}
-    added_shorthand: set[int] = set()
     
     def render_document(self, element: marko.block.Document):
         children = self.render_children(element)
@@ -247,12 +230,6 @@ class MarkoLatexRenderer(LatexRenderer):
             return r'\interview' + element.type + ' '
         return element.type + ': '
     
-    def render_shorthand(self, element: Shorthand):
-        if element.meaning.id in self.added_shorthand:
-            return element.keyword
-        self.added_shorthand.add(element.meaning.id)
-        return f'\\shorthand{{{element.keyword}}}{{{element.meaning.value}}}'
-    
     def render_table(self, element: MarkoGFM.elements.Table):
         casted_children = cast(list[MarkoGFM.elements.TableRow], element.children)
         all_cells = [[cast(MarkoGFM.elements.TableCell, cell) for cell in row.children] for row in casted_children]
@@ -359,7 +336,6 @@ def make_extension():
                 Emoji,
                 FrontMatter,
                 InterviewQA,
-                Shorthand,
                 MarkoGFM.elements.Table,
                 MarkoGFM.elements.TableRow,
                 MarkoGFM.elements.TableCell,
