@@ -34,11 +34,11 @@ render-articles:
 	export PYTHONPATH="${PYTHONPATH}:./scripts/"; \
 	for article in ./articles/*.md; do \
 		echo Processing $$article; \
-		marko -e marko_latex_extension -o src/$${article//.md/.latex} $$article; \
+		marko -e marko_latex_extension -o src/$${article//.md/.tex} $$article; \
 	done
 
 render-pdf: $(BUILD_FOLDER)
 	cd src; \
-	$(LATEX) $(FLAGS) report.latex; \
+	$(LATEX) $(FLAGS) report.tex; \
 	cd ..; \
 	cp src/report.pdf $(OUTPUT)
