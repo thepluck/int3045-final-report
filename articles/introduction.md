@@ -4,7 +4,7 @@ meta:
     title: Giới thiệu nhóm và vai trò
 ---
 
-### Thông tin thành viên 
+## Thông tin thành viên 
 - Hồ Lê Dương
     - MSV:
     - Email:
@@ -17,7 +17,7 @@ meta:
     - MSV: 22022502
     - Email: nghoangvu24@gmail.com
 
-### Vai trò
+## Vai trò
 - Hồ Lê Dương
     - Vai trò: Thành viên phụ trách model kiểm thử
     - Nhiệm vụ cụ thể: Code Decision Tree, Random Forest, Gradient Boosting 
