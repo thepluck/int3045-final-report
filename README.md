@@ -1,4 +1,4 @@
-# VNOI magazine 2024
+# INT3405 Final Report
 
 TODO read online link.
 
@@ -43,6 +43,4 @@ render the TOC.
 ```sh
 make render-articles
 ```
-With this command, all the markdown files in `./articles` and `./interviews`
-will be transformed into the corresponding latex files in `./src/articles` and
-`./src/interviews` respectively.
+With this command, all the markdown files in `./articles` will be transformed into the corresponding latex files in `./src/articles`.
