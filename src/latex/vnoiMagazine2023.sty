@@ -94,40 +94,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 \newkeyenvironment{article}[
     title=\missingArg{title},
-    subtitle={},
-    author=\missingArg{author},
-    authorInfo=\missingArg{authorInfo}
 ]
 {
     \defineLocalCommand{}
-    \pagestyle{fancy}
-    %
-    \fancyhead{}
     \lhead{\commandkey{title}}
-    \rhead{\textrm{\textit{\commandkey{author}}}}
-    %
-    ~\thispagestyle{empty}
-    \setbackgroundEverypage{../assets/page-bg.png}
-    % \autoSetBackground
-    %
-    \vfill
     \customPart{\commandkey{title}}
-    \noindent \commandkey{subtitle}
-    \begin{flushright}
-        \textrm{
-            \textit{\commandkey{author} \\ \noindent\commandkey{authorInfo}}
-        }
-    \end{flushright}
-    \vfill
-    %
-    \newpage
-    %
     \everymath={\displaystyle}
-    \begin{multicols*}{2}
 }
 {
-    \end{multicols*}
-    \newpage
 }
 
 \newkeyenvironment{interview}[

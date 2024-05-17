@@ -1,0 +1,38 @@
+\documentclass[12pt]{article}
+% \usepackage[utf8]{vietnam} 
+\usepackage[utf8]{inputenc}
+% \usepackage[sfdefault]{noto}
+\usepackage[T1,T5]{fontenc}
+\usepackage[main=vietnamese]{babel}
+\usepackage{vnoiMagazine2023}
+\usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage[bottom]{footmisc}
+\usepackage{indentfirst}
+
+\renewcommand{\familydefault}{\sfdefault}
+\graphicspath{./}
+\begin{document}
+    % \begin{titlepage}
+    %     \setCoverImage{../assets/cover.png}
+    % \end{titlepage}
+    
+    \input{./introduction.latex}
+    
+    \newpage
+    \newgeometry{left=3.5cm,right=3.5cm,top=5cm}
+    % \setbackground{../assets/page-bg.png}
+    \renewcommand{\contentsname}{\hfill\bfseries\Large Mục lục\hfill}   
+    \renewcommand{\cftaftertoctitle}{\hfill}
+    \tableofcontents
+    \newpage
+    \restoregeometry
+
+    
+    % \newpage
+    % \input{./credit.latex}
+    
+    % \newpage
+    % \ClearShipoutPictureBG
+    % \setCoverImage{../assets/backcover.png}
+    
+\end{document}

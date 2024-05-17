@@ -11,7 +11,7 @@ import marko.block
 import marko.ext.gfm as MarkoGFM
 import marko.inline
 import yaml
-from format_cpp import format_cpp
+from format_python import format_python
 from marko import MarkoExtension, block, inline
 from marko.ext.latex_renderer import LatexRenderer
 from marko.source import Source
@@ -166,8 +166,8 @@ class MarkoLatexRenderer(LatexRenderer):
 
         # This cast got from the marko source code (marko.block.FencedCode#__init__)
         content: str = cast(marko.inline.RawText, element.children[0]).children
-        if language == 'cpp':
-            content = format_cpp(content)
+        if language == 'python':
+            content = format_python(content)
         return self._environment(f"{language}code", content)
     
     def render_block_math(self, element: BlockMath):
