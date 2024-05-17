@@ -3,7 +3,7 @@ on:
     # Only generate pdf when something is pushed to main.
     branches:
       - main
-      - master
+      - dev
     tags:
       - v*
 
